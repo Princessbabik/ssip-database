@@ -5,7 +5,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <a href="home.html"class="btn btn-secondary btn-block"></a>
+    <a href="home.html">Go to Home</a>
     <br/><br/>
     <form action="index.php" method="post" name="form1">
         <div class="container">
