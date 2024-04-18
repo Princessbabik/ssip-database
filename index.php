@@ -2,44 +2,47 @@
 <html>
 <head>
     <title>Add participants</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="login-container">
-                    <h2>Add Participants</h2>
-                    <form action="index.php" method="post" name="form1">
-                        <div class="form-group">
-                            <label for="ID_Participant">ID Participant</label>
-                            <input type="text" class="form-control" name="ID_Participant" id="ID_Participant">
-                        </div>
-                        <div class="form-group">
-                            <label for="Nama">Name</label>
-                            <input type="text" class="form-control" name="Nama" id="Nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="Email">Email</label>
-                            <input type="email" class="form-control" name="Email" id="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="City">City</label>
-                            <input type="text" class="form-control" name="City" id="City">
-                        </div>
-                        <div class="form-group">
-                            <label for="Gender">Gender</label>
-                            <input type="text" class="form-control" name="Gender" id="Gender">
-                        </div>
-                        <button type="submit" name="Submit" class="btn btn-primary btn-block">Submit</button>
-                    </form>
+    <a href="home.html">Go to Home</a>
+    <br/><br/>
+    <form action="index.php" method="post" name="form1">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="login-container">
+                        <table width="25%" border="0">
+                            <tr>
+                                <td>ID_Participant</td>
+                                <td><input type="text" name="ID_Participant"></td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td><input type="text" name="Nama"></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="text" name="Email"></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td><input type="text" name="City"></td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td><input type="text" name="Gender"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" name="Submit" value="Submit Your Data" class="btn btn-primary btn-block"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <br>
-                <a href="home.html" class="btn btn-secondary btn-block"></a>
             </div>
         </div>
-    </div>
+    </form>
 
     <div id="popupContainer" class="popup-container">
         <div class="popup-box">
