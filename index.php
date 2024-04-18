@@ -13,6 +13,7 @@
                 <div class="col-md-6">
                     <div class="login-container">
                         <table width="25%" border="0">
+                            <h3 class="h3-title"> Form for New Participant</h3>
                             <tr>
                                 <td>ID</td>
                                 <td><input type="text" name="ID_Participant"></td>
