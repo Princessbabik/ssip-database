@@ -16,7 +16,7 @@
                             <h3 class="h3-title"> Form for New Participant</h3>
                             <tr>
                                 <td>ID</td>
-                                <td><input type="text" name="ID_Participant"></td>
+                                <td><input type="text" name="ID_Participant"value="<?php echo isset($_GET['ID_Participant']) ? $_GET['ID_Participant'] : ''; ?>" readonly></td>
                             </tr>
                             <tr>
                                 <td>Name</td>
