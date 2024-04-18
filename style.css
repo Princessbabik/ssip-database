@@ -14,8 +14,7 @@ body {
     margin: auto;
 }
 
-.login-container button,
-input[type="submit"] {
+.login-container button,input[type="submit"] {
     background-color: #cc8b8bb6;
 }
 
@@ -42,5 +41,10 @@ input[type="submit"] {
 }
 
 .popup-box button {
-    background-color: #cc8b8b;
+    background-color: #cc8b8bb6;
+}
+
+.btn-primary {
+    background-color: #cc8b8bb6;
+    border-color: #cc8b8bb6;
 }

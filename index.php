@@ -5,7 +5,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <a href="home.html">Go to Home</a>
+    <button onclick="window.location.href='home.html'" class="btn btn-primary btn-block">Back</button>
     <br/><br/>
     <form action="index.php" method="post" name="form1">
         <div class="container">
@@ -48,7 +48,7 @@
         <div class="popup-box">
             <h2>Alert!</h2>
             <p>You're Added, Please click next to do the payment</p>
-            <button onclick="closePopup()">Okay</button>
+            <button onclick="closePopup()">Next</button>
         </div>
     </div>
 
