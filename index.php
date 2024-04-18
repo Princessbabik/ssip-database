@@ -14,11 +14,11 @@
                     <div class="login-container">
                         <table width="25%" border="0">
                             <tr>
-                                <td>ID_Participant</td>
+                                <td>ID</td>
                                 <td><input type="text" name="ID_Participant"></td>
                             </tr>
                             <tr>
-                                <td>Nama</td>
+                                <td>Name</td>
                                 <td><input type="text" name="Nama"></td>
                             </tr>
                             <tr>
@@ -35,7 +35,7 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><input type="submit" name="Submit" value="Submit Your Data" class="btn btn-primary btn-block"></td>
+                                <td><input type="submit" name="Submit" value="Submit" class="btn btn-primary btn-block"></td>
                             </tr>
                         </table>
                     </div>
@@ -46,9 +46,9 @@
 
     <div id="popupContainer" class="popup-container">
         <div class="popup-box">
-            <h2>Pop-up Alert</h2>
+            <h2>Alert!</h2>
             <p>You're Added, Please click next to do the payment</p>
-            <button onclick="closePopup()">NEXT</button>
+            <button onclick="closePopup()">Okay</button>
         </div>
     </div>
 
@@ -61,7 +61,7 @@
         function closePopup() {
             var popupContainer = document.getElementById("popupContainer");
             popupContainer.style.display = "none";
-            window.location.href = 'player.php';
+            window.location.href = 'payment.php';
         }
 
         <?php if (isset($_POST['Submit'])): ?>
