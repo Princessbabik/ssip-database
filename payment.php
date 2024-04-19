@@ -39,23 +39,19 @@
             </div>
         </div>
     </div>
-    <?php
-    include_once("paybase.php");
 
+    <?php
     if (isset($_POST['Submit'])) {
+        include_once("paybase.php");
+
         $ID_Payment = $_POST['ID_Payment'];
         $ID_Participant = $_POST['ID_Participant'];
         $Payment_Method = $_POST['Payment_Method'];
         $Payment_Date = $_POST['Payment_Date'];
 
-        $sql = "INSERT INTO participant_payments (ID_Payment, ID_Participant, Payment_Method, Payment_Date)
-                VALUES ('$ID_Payment', '$ID_Participant', '$Payment_Method', '$Payment_Date')";
+        $result = mysqli_query($conn, "INSERT INTO participant_payments (ID_Payment, ID_Participant, Payment_Method, Payment_Date)
+        VALUES ('$ID_Payment', '$ID_Participant', '$Payment_Method', '$Payment_Date')");
 
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
     }
     ?>
 

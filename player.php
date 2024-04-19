@@ -1,8 +1,6 @@
 <?php
-// Create database connection using config file
 include_once("database.php");
 
-// Fetch all users data from database and student table
 $result = mysqli_query($conn, "SELECT * FROM participant");
 ?>
 
@@ -24,7 +22,6 @@ $result = mysqli_query($conn, "SELECT * FROM participant");
     </head>
 
     <body>
-        <!-- This is a link for Add Page -->
         <a href="index.php">Add New Participant</a><br/><br/>
         <div class= table-container>
         <table border=1>
