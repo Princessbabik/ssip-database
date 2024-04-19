@@ -32,36 +32,93 @@ while($participant = mysqli_fetch_array($result))
 }
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Edit Participant Data</title>
+    <style>
+        body {
+            background-image: url('Aura.jpg'); 
+            background-size: cover;
+            background-repeat: repeat; 
+        }
+
+        .form-title {
+            color: #c96666;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #cc8b8bb6;
+            border-color:#cc8b8bb6;
+            width: 4%;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .payment-container {
+            background-color: rgba(255, 255, 255, 0.514);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .payment-container button,input[type="submit"] {
+        background-color: #cc8b8bb6;
+        width: 25%;
+        }
+
+        .form-table {
+            width: 100%;
+        }
+
+        .form-table td {
+            padding: 4px;
+        }
+
+        .btn-primary:hover {
+            background-color: #b37373;
+        }
+    </style>
 </head>
 <body>
-    <a href="player.php">Home</a>
+    <button onclick="window.location.href='player.php'" class="btn btn-primary btn-block">Back</button>
     <br/><br/>
-    <form name="update_participant" method="post" action="edit.php">
-        <table border="0">
-            <tr>
-                <td>Name</td>
-                <td><input type="text" name="Nama" value="<?php echo $Nama; ?>"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="text" name="Email" value="<?php echo $Email; ?>"></td>
-            </tr>
-            <tr>
-                <td>City</td>
-                <td><input type="text" name="City" value="<?php echo $City;?>"></td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td><input type="text" name="Gender" value="<?php echo $Gender;?>"></td>
-            </tr>
-            <tr>
-                <td><input type="hidden" name="ID_Participant" value="<?php echo $_GET['ID_Participant']; ?>"></td>
-                <td><input type="submit" name="update" value="Update"></td>
-            </tr>
-        </table>
-    </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="payment-container">
+                    <h3 class="form-title">Edit Participant Data</h3>
+                    <form name="update_participant" method="post" action="edit.php">
+                        <table class="form-table">
+                            <tr>
+                                <td>Name</td>
+                                <td><input type="text" name="Nama" value="<?php echo $Nama; ?>"></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="text" name="Email" value="<?php echo $Email; ?>"></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td><input type="text" name="City" value="<?php echo $City;?>"></td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td><input type="text" name="Gender" value="<?php echo $Gender;?>"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="hidden" name="ID_Participant" value="<?php echo $_GET['ID_Participant']; ?>"></td>
+                                <td><input type="submit" name="update" value="Update" class="btn btn-primary btn-block"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

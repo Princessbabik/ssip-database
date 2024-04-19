@@ -4,10 +4,11 @@ body {
     background-repeat: repeat; 
 }
 
-.h3-title {
+.form-title {
     color: #c96666;
     text-align: center;
 }
+
 .login-container {
     background-color: rgba(255, 255, 255, 0.514);
     border-radius: 15px;
@@ -20,35 +21,33 @@ body {
 
 .login-container button,input[type="submit"] {
     background-color: #cc8b8bb6;
+    border-color:#cc8b8bb6;
+    border-radius: 5px; /* Added border-radius */
+    width: 20%; /* A4sdjusted width to match edit.php */
+    padding: 3px;
 }
 
-.popup-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
+.form-table {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999; 
 }
 
-.popup-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #cc8b8b;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.popup-box button {
-    background-color: #cc8b8bb6;
+.form-table td {
+    padding: 8px 0; /* Adjust vertical padding */
 }
 
 .btn-primary {
     background-color: #cc8b8bb6;
     border-color: #cc8b8bb6;
+    border-radius: 5px;
+    width: 5%;
+    padding: 3px;
+
+}
+
+.btn-primary:hover {
+    background-color: #ac6b6bb6;
+}
+
+.btn-primary:focus {
+    outline: none;
 }

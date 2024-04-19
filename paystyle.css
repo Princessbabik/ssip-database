@@ -9,6 +9,9 @@ body {
 .btn-primary {
     background-color: #cc8b8bb6;
     border-color: #cc8b8bb6;
+    border-radius: 5px; 
+    width: 5%;
+    padding: 3px;
 }
 
 .payment-container {
@@ -23,6 +26,9 @@ body {
 .payment-container button,input[type="submit"] {
     background-color: #cc8b8bb6;
     border-color:#cc8b8bb6;
+    border-radius: 5px;
+    width: 43%;
+    padding: 3px;
 }
 
 .form-title {

@@ -14,20 +14,25 @@ $result = mysqli_query($conn, $query);
         <title>Participant Information</title>
         <link href="style.css" rel="stylesheet">
         <style>
-            .table-container {
-                background-color: rgba(255, 255, 255, 0.514);
-                border-radius: 25px;
-                padding: 30px;
-                margin-top: 50px;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                max-width: 900px;
-                margin: auto;
-            }
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.514);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
         </style>
     </head>
 
     <body>
-        <a href="index.php">Add New Participant</a><br/><br/>
+    <button onclick="window.location.href='home.html'" class="btn btn-primary btn-block">Home</button><br/><br/>
         <div class="table-container">
             <table border="1">
                 <tr>

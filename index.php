@@ -37,8 +37,8 @@ if (isset($_POST['Submit'])) {
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="login-container">
-                        <table width="25%" border="0">
-                            <h3 class="h3-title"> Form for New Participant</h3>
+                        <h3 class="form-title">Form for New Participant</h3>
+                        <table class="form-table">
                             <tr>
                                 <td>Name</td>
                                 <td><input type="text" name="Nama"></td>
