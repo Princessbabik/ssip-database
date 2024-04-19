@@ -1,3 +1,47 @@
+<?php
+include_once("database.php");
+
+// Check if ID_Participant is provided in the URL
+if (isset($_GET['ID_Participant'])) {
+    $ID_Participant = $_GET['ID_Participant'];
+
+    // Fetch participant details from Participants table based on ID_Participant
+    $participant_query = "SELECT * FROM Participant WHERE ID_Participant = $ID_Participant";
+    $participant_result = mysqli_query($conn, $participant_query);
+    
+    // Check if participant exists
+    if (mysqli_num_rows($participant_result) > 0) {
+        $participant = mysqli_fetch_assoc($participant_result);
+    } else {
+        // Participant not found, handle accordingly (redirect or display error message)
+        echo "Participant not found!";
+        exit;
+    }
+} else {
+    // ID_Participant not provided in the URL, handle accordingly (redirect or display error message)
+    echo "Participant ID not provided!";
+    exit;
+}
+
+if (isset($_POST['Submit'])) {
+    // Retrieve payment information from the form
+    $Payment_Method = $_POST['Payment_Method'];
+    $Payment_Date = $_POST['Payment_Date'];
+
+    // Insert payment information into Participant_Payments table
+    $sql = "INSERT INTO Participant_Payments (ID_Participant, Payment_Method, Payment_Date) 
+            VALUES ('$ID_Participant', '$Payment_Method', '$Payment_Date')";
+    
+    if (mysqli_query($conn, $sql)) {
+        // Payment successfully inserted
+        echo "<script>alert('Payment submitted successfully.'); window.location.href = 'player.php';</script>";
+    } else {
+        // Error occurred
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +55,27 @@
             <div class="col-md-6">
                 <div class="payment-container">
                     <h3 class="form-title">Participant Payment Form</h3>
-                    <form action="player.php" method="post" name="payment_form">
+                    <form action="payment.php?ID_Participant=<?php echo $ID_Participant; ?>" method="post" name="payment_form">
                         <table class="form-table">
                             <tr>
-                                <td>ID Payment</td>
-                                <td><input type="text" name="ID_Payment" value="<?php echo isset($_GET['ID_Payment']) ? $_GET['ID_Payment'] : ''; ?>" readonly></td>
+                                <td>ID Participant</td>
+                                <td><input type="text" name="ID_Participant" value="<?php echo $participant['ID_Participant']; ?>" readonly></td>
                             </tr>
                             <tr>
-                                <td>ID Participant</td>
-                                <td><input type="text" name="ID_Participant" value="<?php echo isset($_GET['ID_Participant']) ? $_GET['ID_Participant'] : ''; ?>" readonly></td>
+                                <td>Name</td>
+                                <td><input type="text" name="Name" value="<?php echo $participant['Name']; ?>" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="text" name="Email" value="<?php echo $participant['Email']; ?>" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td><input type="text" name="City" value="<?php echo $participant['City']; ?>" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td><input type="text" name="Gender" value="<?php echo $participant['Gender']; ?>" readonly></td>
                             </tr>
                             <tr>
                                 <td>Payment Method</td>
@@ -39,21 +95,5 @@
             </div>
         </div>
     </div>
-
-    <?php
-    if (isset($_POST['Submit'])) {
-        include_once("paybase.php");
-
-        $ID_Payment = $_POST['ID_Payment'];
-        $ID_Participant = $_POST['ID_Participant'];
-        $Payment_Method = $_POST['Payment_Method'];
-        $Payment_Date = $_POST['Payment_Date'];
-
-        $result = mysqli_query($conn, "INSERT INTO participant_payments (ID_Payment, ID_Participant, Payment_Method, Payment_Date)
-        VALUES ('$ID_Payment', '$ID_Participant', '$Payment_Method', '$Payment_Date')");
-
-    }
-    ?>
-
 </body>
 </html>

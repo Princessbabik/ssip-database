@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost"; $username = "root"; $password = ""; $dbname = "participant_payments";
+$servername = "localhost"; $username = "root"; $password = ""; $dbname = "participant";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 

@@ -1,3 +1,28 @@
+<?php
+include_once("database.php");
+
+if (isset($_POST['Submit'])) {
+    // Retrieve participant information from the form
+    $Nama = $_POST['Nama'];
+    $Email = $_POST['Email'];
+    $City = $_POST['City'];
+    $Gender = $_POST['Gender'];
+
+    // Insert participant information into Participants table
+    $sql = "INSERT INTO Participant (Name, Email, City, Gender) 
+    VALUES ('$Nama', '$Email', '$City', '$Gender')";
+    
+    if (mysqli_query($conn, $sql)) {
+        // Participant successfully inserted
+        $last_inserted_id = mysqli_insert_id($conn); // Get the ID of the last inserted participant
+        echo "<script>alert('Participant added successfully.'); window.location.href = 'payment.php?ID_Participant=$last_inserted_id';</script>";
+    } else {
+        // Error occurred
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +39,6 @@
                     <div class="login-container">
                         <table width="25%" border="0">
                             <h3 class="h3-title"> Form for New Participant</h3>
-                            <tr>
-                                <td>ID</td>
-                                <td><input type="text" name="ID_Participant"value="<?php echo isset($_GET['ID_Participant']) ? $_GET['ID_Participant'] : ''; ?>" readonly></td>
-                            </tr>
                             <tr>
                                 <td>Name</td>
                                 <td><input type="text" name="Nama"></td>
@@ -44,46 +65,5 @@
             </div>
         </div>
     </form>
-
-    <div id="popupContainer" class="popup-container">
-        <div class="popup-box">
-            <h2>Alert!</h2>
-            <p>You're Added, Please click next to do the payment</p>
-            <button onclick="closePopup()">Next</button>
-        </div>
-    </div>
-
-    <script>
-        function showPopup() {
-            var popupContainer = document.getElementById("popupContainer");
-            popupContainer.style.display = "block";
-        }
-
-        function closePopup() {
-            var popupContainer = document.getElementById("popupContainer");
-            popupContainer.style.display = "none";
-            window.location.href = 'payment.php';
-        }
-
-        <?php if (isset($_POST['Submit'])): ?>
-            showPopup();
-        <?php endif; ?>
-    </script>
-
-    <?php
-    if (isset($_POST['Submit'])) {
-        include_once("database.php");
-
-        $ID_Participant = $_POST['ID_Participant'];
-        $Nama = $_POST['Nama'];
-        $Email = $_POST['Email'];
-        $City = $_POST['City'];
-        $Gender = $_POST['Gender'];
-
-        $result = mysqli_query($conn, "INSERT INTO participant (ID_Participant, Nama, Email, City, Gender)
-        VALUES ('$ID_Participant', '$Nama', '$Email', '$City', '$Gender')");
-
-    }
-    ?>
 </body>
 </html>
