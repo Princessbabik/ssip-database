@@ -38,6 +38,7 @@ $result = mysqli_query($conn, $query);
                     <th>Gender</th>
                     <th>Payment Method</th>
                     <th>Payment Date</th>
+                    <th>Action</th>
                 </tr>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -49,7 +50,12 @@ $result = mysqli_query($conn, $query);
                     echo "<td>".$row['Gender']."</td>";
                     echo "<td>".$row['Payment_Method']."</td>";
                     echo "<td>".$row['Payment_Date']."</td>";
+                    echo "<td>
+                    <a href='edit.php?ID_Participant=".$row['ID_Participant']."'>Edit</a> |
+                    <a href='delete.php?ID_Participant=".$row['ID_Participant']."' onclick='return confirm(\"Are you sure you want to delete this participant?\")'>Delete</a>
+                    </td>";
                     echo "</tr>";
+
                 }
                 ?>
             </table>
