@@ -29,7 +29,7 @@
             <img id="pic3" src="Committee List.png" alt="" onclick="window.location.href='comlist.php'">
         </div>
         <div class="pic-4" >
-            <img id="pic4" src="Committee Activities.png" alt="" onclick="window.location.href='activities.php'">
+            <img id="pic4" src="Committee Activities.png" alt="" onclick="window.location.href='add_activity.php'">
         </div>
     </div>
 
