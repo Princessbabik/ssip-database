@@ -43,10 +43,10 @@
            <img id="pic1" src="Participant List.png" alt="" onclick="window.location.href='player.php'">
         </div>
         <div class="pic-2">
-            <img id="pic2" src="Sponsor List.png" alt="" onclick="window.location.href='sponsor.php'">
+            <img id="pic2" src="Sponsor List.png" alt="" onclick="window.location.href='add_sponsor.php'">
         </div>
         <div class="pic-3" >
-            <img id="pic3" src="Committee List.png" alt="" onclick="window.location.href='comlist.php'">
+            <img id="pic3" src="Committee List.png" alt="" onclick="window.location.href='add_committee.php'">
         </div>
         <div class="pic-4" >
             <img id="pic4" src="Committee Activities.png" alt="" onclick="window.location.href='add_activity.php'">

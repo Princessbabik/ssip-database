@@ -34,7 +34,7 @@ if (isset($_POST['Submit'])) {
     
     if (mysqli_query($conn, $sql)) {
         // Payment successfully inserted
-        echo "<script>alert('Payment submitted successfully.'); window.location.href = 'player.php';</script>";
+        echo "<script>alert('Payment submitted successfully.'); window.location.href = 'home.php';</script>";
     } else {
         // Error occurred
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);

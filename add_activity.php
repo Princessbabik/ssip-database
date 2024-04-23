@@ -25,6 +25,7 @@ if (isset($_POST['Add_Activity'])) {
     <link href="paystyle.css" rel="stylesheet">
 </head>
 <body>
+<button onclick="window.location.href='home.php'" class="btn btn-primary">Back</button>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
