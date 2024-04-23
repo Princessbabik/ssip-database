@@ -3,19 +3,19 @@ include_once("database.php");
 
 if (isset($_POST['Submit'])) {
     // Retrieve participant information from the form
-    $Nama = $_POST['Nama'];
-    $Email = $_POST['Email'];
-    $City = $_POST['City'];
-    $Gender = $_POST['Gender'];
+    $ID_Committee = $_POST['ID_Committee'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $Password = password_hash($_POST['Password'], PASSWORD_DEFAULT); // Hash the password
 
     // Insert participant information into Participants table
-    $sql = "INSERT INTO Participant (Name, Email, City, Gender) 
-    VALUES ('$Nama', '$Email', '$City', '$Gender')";
+    $sql = "INSERT INTO login (ID_Committee, username, email, Password) 
+    VALUES ('$ID_Committee', '$username', '$email', '$Password')";
     
     if (mysqli_query($conn, $sql)) {
         // Participant successfully inserted
         $last_inserted_id = mysqli_insert_id($conn); // Get the ID of the last inserted participant
-        echo "<script>alert('Participant added successfully.'); window.location.href = 'payment.php?ID_Participant=$last_inserted_id';</script>";
+        echo "<script>alert('Participant added successfully.');</script>";
     } else {
         // Error occurred
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -30,7 +30,7 @@ if (isset($_POST['Submit'])) {
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <button onclick="window.location.href='home.php'" class="btn btn-primary btn-block">Back</button>
+    <button onclick="window.location.href='home.html'" class="btn btn-primary btn-block">Back</button>
     <br/><br/>
     <form action="index.php" method="post" name="form1">
         <div class="container">
@@ -40,20 +40,24 @@ if (isset($_POST['Submit'])) {
                         <h3 class="form-title">Form for New Participant</h3>
                         <table class="form-table">
                             <tr>
+                                <td>ID Committee</td>
+                                <td><input type="text" name="ID_Committee" value="<?php echo $login['ID_Committee ']; ?>" readonly></td>
+                            </tr>
+                            <tr>
                                 <td>Name</td>
-                                <td><input type="text" name="Nama"></td>
+                                <td><input type="text" name="ID_Committee"></td>
                             </tr>
                             <tr>
-                                <td>Email</td>
-                                <td><input type="text" name="Email"></td>
+                                <td>username</td>
+                                <td><input type="text" name="username"></td>
                             </tr>
                             <tr>
-                                <td>City</td>
-                                <td><input type="text" name="City"></td>
+                                <td>email</td>
+                                <td><input type="text" name="email"></td>
                             </tr>
-                            <tr>
-                                <td>Gender</td>
-                                <td><input type="text" name="Gender"></td>
+                            <tr> <!-- Add password field -->
+                                <td>Password</td>
+                                <td><input type="password" name="Password"></td>
                             </tr>
                             <tr>
                                 <td></td>

@@ -32,7 +32,7 @@ $result = mysqli_query($conn, $query);
     </head>
 
     <body>
-    <button onclick="window.location.href='home.html'" class="btn btn-primary btn-block">Home</button><br/><br/>
+    <button onclick="window.location.href='home.php'" class="btn btn-primary btn-block">Home</button><br/><br/>
         <div class="table-container">
             <table border="1">
                 <tr>
