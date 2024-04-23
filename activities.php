@@ -22,33 +22,42 @@ if (isset($_POST['Add_Activity'])) {
 <html>
 <head>
     <title>Add Activity</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="paystyle.css" rel="stylesheet">
 </head>
 <body>
-    <form action="add_activity.php" method="post" name="form_activity">  <!-- Form to add activity -->
-        <h3>Add New Activity</h3>
-        <table>
-            <tr>
-                <td>ID Committee</td>
-                <td><input type="text" name="ID_Committee" placeholder="Enter Committee ID"></td>
-            </tr>
-            <tr>
-                <td>Activity Name</td>
-                <td><input type="text" name="Activity_Name" placeholder="Enter Activity Name"></td>
-            </tr>
-            <tr>
-                <td>Activity Date</td>
-                <td><input type="date" name="Activity_Date"></td>
-            </tr>
-            <tr>
-                <td>Location</td>
-                <td><input type="text" name="Location" placeholder="Enter Location"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" name="Add_Activity" value="Add Activity" class="btn btn-primary"></td>
-            </tr>
-        </table>
-    </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="payment-container">
+                    <h3 class="form-title">Participant Payment Form</h3>
+                    <form action="add_activity.php" method="post" name="form_activity"> 
+                        <table>
+                            <tr>
+                                <td>ID Committee</td>
+                                <td><input type="text" name="ID_Committee" placeholder="Enter Committee ID"></td>
+                            </tr>
+                            <tr>
+                                <td>Activity Name</td>
+                                <td><input type="text" name="Activity_Name" placeholder="Enter Activity Name"></td>
+                            </tr>
+                            <tr>
+                                <td>Activity Date</td>
+                                <td><input type="date" name="Activity_Date"></td>
+                            </tr>
+                            <tr>
+                                <td>Location</td>
+                                <td><input type="text" name="Location" placeholder="Enter Location"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" name="Add_Activity" value="Add Activity" class="btn btn-primary"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </body>
 </html>
