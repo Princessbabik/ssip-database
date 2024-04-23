@@ -2,22 +2,18 @@
 include_once("database.php");
 
 if (isset($_POST['Submit'])) {
-    // Retrieve participant information from the form
     $Nama = $_POST['Nama'];
     $Email = $_POST['Email'];
     $City = $_POST['City'];
     $Gender = $_POST['Gender'];
 
-    // Insert participant information into Participants table
     $sql = "INSERT INTO Participant (Name, Email, City, Gender) 
     VALUES ('$Nama', '$Email', '$City', '$Gender')";
     
     if (mysqli_query($conn, $sql)) {
-        // Participant successfully inserted
-        $last_inserted_id = mysqli_insert_id($conn); // Get the ID of the last inserted participant
+        $last_inserted_id = mysqli_insert_id($conn);
         echo "<script>alert('Participant added successfully.'); window.location.href = 'payment.php?ID_Participant=$last_inserted_id';</script>";
     } else {
-        // Error occurred
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
