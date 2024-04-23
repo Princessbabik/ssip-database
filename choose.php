@@ -15,9 +15,29 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .btn-primary {
+        background-color: #cc8b8bb6;
+        border-color: #cc8b8bb6;
+        border-radius: 5px;
+        width: 5%;
+        padding: 3px;
+        margin-left: 10px;
+        margin-top: 10px;
+
+        }
+
+        .btn-primary:hover {
+            background-color: #ac6b6bb6;
+        }
+
+        .btn-primary:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body>
+<button onclick="window.location.href='home.php'" class="btn btn-primary">Back</button>
     <div class="container">
         <div class="pic-1" >
            <img id="pic1" src="Participant List.png" alt="" onclick="window.location.href='player.php'">

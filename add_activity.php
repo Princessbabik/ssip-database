@@ -11,7 +11,7 @@ if (isset($_POST['Add_Activity'])) {
             VALUES ('$ID_Committee', '$Activity_Name', '$Activity_Date', '$Location')";
     
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Activity added successfully.');</script>";
+        echo "<script>alert('Activity added successfully.');window.location.href = 'activitylist.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

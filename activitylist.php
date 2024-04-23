@@ -1,17 +1,16 @@
 <?php
 include_once("database.php");
 
-// Perform a SQL join between Participants and Participant_Payments tables
-$query = "SELECT Participant.ID_Participant, Participant.Name, Participant.Email, Participant.City, Participant.Gender, 
-                 Participant_Payments.Payment_Method, Participant_Payments.Payment_Date
-          FROM Participant
-          LEFT JOIN Participant_Payments ON Participant.ID_Participant = Participant_Payments.ID_Participant";
+// Perform a SQL join between activitiess and activities_Payments tables
+$query = "SELECT activities.ID_Committee, activities.Activity_Name, activities.Activity_Date, activities.Location
+          FROM login
+          LEFT JOIN activities ON login.ID_Committee = activities.ID_Committee";
 $result = mysqli_query($conn, $query);
 ?>
 
 <html>
     <head>
-        <title>Participant Information</title>
+        <title>activities Information</title>
         <link href="style.css" rel="stylesheet">
         <style>
         .table-container {
@@ -32,35 +31,23 @@ $result = mysqli_query($conn, $query);
     </head>
 
     <body>
-    <button onclick="window.location.href='home.php'" class="btn btn-primary btn-block">Home</button><br/><br/>
+    <button onclick="window.location.href='choose.php'" class="btn btn-primary btn-block">back</button><br/><br/>
         <div class="table-container">
             <table border="1">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>City</th>
-                    <th>Gender</th>
-                    <th>Payment Method</th>
-                    <th>Payment Date</th>
-                    <th>Action</th>
+                    <th>Activity_Name</th>
+                    <th>Activity_Date</th>
+                    <th>Location</th>
                 </tr>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>".$row['ID_Participant']."</td>";
-                    echo "<td>".$row['Name']."</td>";
-                    echo "<td>".$row['Email']."</td>";
-                    echo "<td>".$row['City']."</td>";
-                    echo "<td>".$row['Gender']."</td>";
-                    echo "<td>".$row['Payment_Method']."</td>";
-                    echo "<td>".$row['Payment_Date']."</td>";
-                    echo "<td>
-                    <a href='edit.php?ID_Participant=".$row['ID_Participant']."'>Edit</a> |
-                    <a href='delete.php?ID_Participant=".$row['ID_Participant']."' onclick='return confirm(\"Are you sure you want to delete this participant?\")'>Delete</a>
-                    </td>";
+                    echo "<td>".$row['ID_Committee']."</td>";
+                    echo "<td>".$row['Activity_Name']."</td>";
+                    echo "<td>".$row['Activity_Date']."</td>";
+                    echo "<td>".$row['Location']."</td>";
                     echo "</tr>";
-
                 }
                 ?>
             </table>

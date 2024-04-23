@@ -36,7 +36,7 @@ if (isset($_POST['Submit'])) {
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <button onclick="window.location.href='signin.php'" class="btn btn-primary">Back</button>
+    <button onclick="window.location.href='choose.php'" class="btn btn-primary">Back</button>
     <br><br>
 
     <form action="logincom.php" method="post" name="form1">
@@ -44,7 +44,7 @@ if (isset($_POST['Submit'])) {
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="login-container">
-                        <h3 class="form-title">Sign Up</h3>
+                        <h3 class="form-title">Add Your Data</h3>
                         <table class="form-table">
                             <tr>
                                 <td>ID Committee</td>

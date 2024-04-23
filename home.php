@@ -55,7 +55,7 @@
     <img src="pict register.png" alt="" class="center">
     <div class="container">
         <div class="col-6" >
-            <button onclick="window.location.href='signin.php'">committee</button>
+            <button onclick="window.location.href='logincom.php'">committee</button>
         </div>
         <div class="col-6">
             <button onclick="window.location.href='index.php'">Participant</button>
