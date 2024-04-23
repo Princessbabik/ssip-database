@@ -1,7 +1,6 @@
 <?php
 include_once("database.php");
 
-// Perform a SQL join between Participants and Participant_Payments tables
 $query = "SELECT Participant.ID_Participant, Participant.Name, Participant.Email, Participant.City, Participant.Gender, 
                  Participant_Payments.Payment_Method, Participant_Payments.Payment_Date
           FROM Participant
@@ -32,7 +31,7 @@ $result = mysqli_query($conn, $query);
     </head>
 
     <body>
-    <button onclick="window.location.href='home.php'" class="btn btn-primary btn-block">Home</button><br/><br/>
+    <button onclick="window.location.href='choose.php'" class="btn btn-primary btn-block">Back</button><br/><br/>
         <div class="table-container">
             <table border="1">
                 <tr>
