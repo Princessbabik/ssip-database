@@ -10,16 +10,16 @@ if (isset($_POST['Submit'])) {
     $check_duplicate = "SELECT * FROM login WHERE ID_Committee = '$ID_Committee'";
     $result = mysqli_query($conn, $check_duplicate);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) { 
         echo "<script>alert('Error! ID Committee already exists.');</script>";
     } else {
-        $sql = "INSERT INTO login (ID! Committee, username, email, password) 
+        $sql = "INSERT INTO login (ID_Committee, username, email, password) 
                 VALUES ('$ID_Committee', '$username', '$email', '$password')";
 
         if (mysqli_query($conn, $sql)) {
             echo "<script>
                     alert('Successfully added new committee.');
-                    window.location.href = 'choose.php'; // Redirect after alert
+                    window.location.href = 'choose.php'; // Redirect after success
                   </script>";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -27,6 +27,7 @@ if (isset($_POST['Submit'])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
