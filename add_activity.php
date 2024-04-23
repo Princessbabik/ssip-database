@@ -7,7 +7,7 @@ if (isset($_POST['Add_Activity'])) {
     $Activity_Date = $_POST['Activity_Date'];
     $Location = $_POST['Location'];
 
-    $sql = "INSERT INTO committee_activities (ID_Committee, Activity_Name, Activity_Date, Location) 
+    $sql = "INSERT INTO activities (ID_Committee, Activity_Name, Activity_Date, Location) 
             VALUES ('$ID_Committee', '$Activity_Name', '$Activity_Date', '$Location')";
     
     if (mysqli_query($conn, $sql)) {
@@ -29,7 +29,7 @@ if (isset($_POST['Add_Activity'])) {
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="payment-container">
-                    <h3 class="form-title">Participant Payment Form</h3>
+                    <h3 class="form-title">ADD NEW ACTIVITY!!</h3>
                     <form action="add_activity.php" method="post" name="form_activity"> 
                         <table>
                             <tr>
@@ -58,6 +58,7 @@ if (isset($_POST['Add_Activity'])) {
             </div>
         </div>
     </div>
+
 </body>
 </body>
 </html>
