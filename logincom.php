@@ -11,9 +11,9 @@ if (isset($_POST['Submit'])) {
     $result = mysqli_query($conn, $check_duplicate);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<script>alert('Error: ID_Committee already exists.');</script>";
+        echo "<script>alert('Error! ID Committee already exists.');</script>";
     } else {
-        $sql = "INSERT INTO login (ID_Committee, username, email, password) 
+        $sql = "INSERT INTO login (ID! Committee, username, email, password) 
                 VALUES ('$ID_Committee', '$username', '$email', '$password')";
 
         if (mysqli_query($conn, $sql)) {
@@ -31,7 +31,7 @@ if (isset($_POST['Submit'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Add Participant</title>
+    <title>Add Committee</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -43,7 +43,7 @@ if (isset($_POST['Submit'])) {
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="login-container">
-                        <h3 class="form-title">Form for New Participant</h3>
+                        <h3 class="form-title">Form For New Committee</h3>
                         <table class="form-table">
                             <tr>
                                 <td>ID Committee</td>
