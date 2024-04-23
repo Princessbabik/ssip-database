@@ -5,30 +5,39 @@ if (isset($_POST['Submit'])) {
     $ID_Committee = $_POST['ID_Committee'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $Password = password_hash($_POST['Password'], PASSWORD_DEFAULT);
+    $password = $_POST['Password'];
 
+    $check_duplicate = "SELECT * FROM login WHERE ID_Committee = '$ID_Committee'";
+    $result = mysqli_query($conn, $check_duplicate);
 
-    $sql = "INSERT INTO login (ID_Committee, username, email, Password) 
-    VALUES ('$ID_Committee', '$username', '$email', '$Password')";
-    
-    if (mysqli_query($conn, $sql)) {
-        $last_inserted_id = mysqli_insert_id($conn);
-        echo "<script>alert('Participant added successfully.');</script>";
+    if (mysqli_num_rows($result) > 0) {
+        echo "<script>alert('Error: ID_Committee already exists.');</script>";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $sql = "INSERT INTO login (ID_Committee, username, email, password) 
+                VALUES ('$ID_Committee', '$username', '$email', '$password')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>
+                    alert('Successfully added new committee.');
+                    window.location.href = 'choose.php'; // Redirect after alert
+                  </script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Participants</title>
+    <title>Add Participant</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <button onclick="window.location.href='home.php'" class="btn btn-primary btn-block">Back</button>
-    <br/><br/>
+    <button onclick="window.location.href='home.php'" class="btn btn-primary">Back</button>
+    <br><br>
+
     <form action="logincom.php" method="post" name="form1">
         <div class="container">
             <div class="row justify-content-center">
@@ -38,23 +47,23 @@ if (isset($_POST['Submit'])) {
                         <table class="form-table">
                             <tr>
                                 <td>ID Committee</td>
-                                <td><input type="text" name="ID_Committee"></td>
+                                <td><input type="text" name="ID_Committee" placeholder="Enter ID"></td>
                             </tr>
                             <tr>
                                 <td>Username</td>
-                                <td><input type="text" name="username"></td>
+                                <td><input type="text" name="username" placeholder="Enter Username"></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td><input type="text" name="email"></td>
+                                <td><input type="text" name="email" placeholder="Enter Email"></td>
                             </tr>
                             <tr>
                                 <td>Password</td>
-                                <td><input type="password" name="Password"></td>
+                                <td><input type="password" name="Password" placeholder="Enter Password"></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><input type="submit" name="Submit" value="Submit" class="btn btn-primary btn-block"></td>
+                                <td><input type="submit" name="Submit" value="Submit" class="btn btn-primary"></td>
                             </tr>
                         </table>
                     </div>
