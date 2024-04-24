@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Apr 2024 pada 03.12
+-- Waktu pembuatan: 24 Apr 2024 pada 03.39
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -96,7 +96,6 @@ INSERT INTO `login` (`ID_Committee`, `username`, `email`, `password`, `created_a
 
 CREATE TABLE `participant` (
   `ID_Participant` int(11) NOT NULL,
-  `Nama` varchar(30) DEFAULT NULL,
   `Email` varchar(30) DEFAULT NULL,
   `City` varchar(20) NOT NULL,
   `Gender` varchar(20) NOT NULL,
@@ -107,9 +106,9 @@ CREATE TABLE `participant` (
 -- Dumping data untuk tabel `participant`
 --
 
-INSERT INTO `participant` (`ID_Participant`, `Nama`, `Email`, `City`, `Gender`, `Name`) VALUES
-(11, NULL, 'aespakarina@gmail.com', 'Bekasi', 'Female', 'karina'),
-(12, NULL, 'khansa@gmail.com', 'bogor', 'Female', 'khansa');
+INSERT INTO `participant` (`ID_Participant`, `Email`, `City`, `Gender`, `Name`) VALUES
+(11, 'aespakarina@gmail.com', 'Bekasi', 'Female', 'karina'),
+(12, 'khansa@gmail.com', 'bogor', 'Female', 'khansa');
 
 -- --------------------------------------------------------
 
